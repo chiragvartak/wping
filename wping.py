@@ -2,20 +2,27 @@ import subprocess
 import signal
 import sys
 
-servers = ['www.google.com',
+servers = [ '192.168.1.1',
+            '192.168.1.190',
+            'www.google.com',
             'www.yahoo.com',
             'www.yahoo.in',
             'www.snapchat.com',
             'www.facebook.com',
             'www.instagram.com',
             'www.oracle.com',
+            'www.youtube.com',
+            'www.whatsapp.com',
+            'www.ozee.com',
+            'www.hotstar.com',
+            'people.us.oracle.com',
             'slc11bxs.us.oracle.com',
             'inexistentwebsite832439.com'
             ]
 
 def get_ping_time(server):
     "Returns the ping time of 'server' in milliseconds"
-    p = subprocess.Popen(['ping', '-n', '1', '-w', '500', server], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(['ping', '-n', '1', '-w', '1000', server], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     out = out.decode('utf-8')
     err = err.decode('utf-8')
